@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MTS - Maths Test System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="css/timer.css" media="screen" rel="stylesheet" type="text/css">
+	
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	<script src="http://fabricjs.com/lib/fabric.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+	.fraction_table{
+		width:100px;
+		height: 50px;
+	}
+	.timer{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	}
+	
+</style>
+</head>
+
+<body id="page-top" class="index">
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Maths Test System</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#get-started">Get Started</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="login.html">Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To MTS!</div>
+                <div class="intro-heading">Hope you are ready ?</div>
+                <a href="#get-started" id="start-test" class="page-scroll btn btn-xl">Start Test</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Get Started Section -->
+    <section id="get-started">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">MTS - Maths Test System</h2>
+                    <h3 class="section-subheading text-muted">Interactive and Integrated test system.</h3>
+                </div>
+            </div>
+            <span id="testSound"></span>
+			<!-- Question1 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 1: &nbsp;Add the following fraction:</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="add_numerator1"></td> 
+					<td>&nbsp;</td>
+					<td id="add_numerator2"></td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+					<td>+</td>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td id="add_denominator1"></td> 
+					<td></td> 
+					<td id="add_denominator2"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q1-options" style="list-style :none; ">
+				<li><input class="q1" onclick="validate(01,1,0)" type="radio">&nbsp;<label id="q1-op1"></label></li>
+				<li><input class="q1" onclick="validate(02,1,0)" type="radio">&nbsp;<label id="q1-op2"></label></li>
+				<li><input class="q1" onclick="validate(03,1,0)" type="radio">&nbsp;<label id="q1-op3"></label></li>
+				<li><input class="q1" onclick="validate(04,1,0)" type="radio">&nbsp;<label id="q1-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol0">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_0">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse1">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas1" width="600" height ="400"></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question1 -->
+			
+			<!-- Question2 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 2: &nbsp;Add the following fraction:</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="add_numerator3"></td> 
+					<td>&nbsp;</td>
+					<td id="add_numerator4"></td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+					<td>+</td>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td id="add_denominator3"></td> 
+					<td></td> 
+					<td id="add_denominator4"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q2" onclick="validate(01,2,1)" type="radio">&nbsp;<label id="q2-op1"></label></li>
+				<li><input class="q2" onclick="validate(02,2,1)" type="radio">&nbsp;<label id="q2-op2"></label></li>
+				<li><input class="q2" onclick="validate(03,2,1)" type="radio">&nbsp;<label id="q2-op3"></label></li>
+				<li><input class="q2" onclick="validate(04,2,1)" type="radio">&nbsp;<label id="q2-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol1">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_1">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse2">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas2" width="600" height ="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question2 -->
+			
+			<!-- Question3 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 3: &nbsp;Subtract the following fraction:</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="sub_numerator1"></td> 
+					<td>&nbsp;</td>
+					<td id="sub_numerator2"></td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+					<td>-</td>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td id="sub_denominator1"></td> 
+					<td></td> 
+					<td id="sub_denominator2"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q3" onclick="validate(01,3,2)" type="radio">&nbsp;<label id="q3-op1"></label></li>
+				<li><input class="q3" onclick="validate(02,3,2)" type="radio">&nbsp;<label id="q3-op2"></label></li>
+				<li><input class="q3" onclick="validate(03,3,2)" type="radio">&nbsp;<label id="q3-op3"></label></li>
+				<li><input class="q3" onclick="validate(04,3,2)" type="radio">&nbsp;<label id="q3-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol2">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_2">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse3">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas3" width="600" height ="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question3 -->
+			
+			
+			<!-- Question4 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 4: &nbsp;Subtract the following fraction:</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="sub_numerator3"></td> 
+					<td>&nbsp;</td>
+					<td id="sub_numerator4"></td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+					<td>-</td>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td id="sub_denominator3"></td> 
+					<td></td> 
+					<td id="sub_denominator4"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q4" onclick="validate(01,4,3)" type="radio">&nbsp;<label id="q4-op1"></label></li>
+				<li><input class="q4" onclick="validate(02,4,3)" type="radio">&nbsp;<label id="q4-op2"></label></li>
+				<li><input class="q4" onclick="validate(03,4,3)" type="radio">&nbsp;<label id="q4-op3"></label></li>
+				<li><input class="q4" onclick="validate(04,4,3)" type="radio">&nbsp;<label id="q4-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol3">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_3">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse4">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse4" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas4" width="600" height ="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question4 -->
+			
+			<!-- Question5 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 5: &nbsp; Reduce the mixed fraction to improper fraction</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="red_numerator1"></td> 
+					<td id="tp"></td>
+					<td></td>
+					<td id="red_numerator2"></td> 
+					<td id="tp"></td> 
+					<td></td> 
+					<td id="t5">
+					</td>
+				</tr>
+
+				<tr>
+					<td><hr/></td> 
+					<td id="tp"></td>
+					<td id="red_number"></td>
+					<td><hr/></td>
+					<td id="tp"></td>  
+					<td id="t7"></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td id="red_denominator1"></td> 
+					<td id="tp"></td>
+					<td></td> 
+					<td id="red_denominator2"></td>  
+					<td id="tp"></td>  
+					<td></td> 
+					<td id="t6"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q5" onclick="validate(01,5,4)" type="radio">&nbsp;<label id="q5-op1"></label></li>
+				<li><input class="q5" onclick="validate(02,5,4)" type="radio">&nbsp;<label id="q5-op2"></label></li>
+				<li><input class="q5" onclick="validate(03,5,4)" type="radio">&nbsp;<label id="q5-op3"></label></li>
+				<li><input class="q5" onclick="validate(04,5,4)" type="radio">&nbsp;<label id="q5-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol4">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_4">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse5">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse5" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas5" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question5 -->
+			
+			<!-- Question6 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 6: &nbsp; Convert improper fraction to Mixed Fraction</h3>
+			<div class="col-md-4">
+			
+			<table class ="fraction_table" cellpadding="1" style="text-align: center;"> 
+				<tbody>
+				<tr>
+					<td id="red_numerator3"></td> 
+					<td id="tp"></td>
+					<td></td>
+					<td id="red_numerator4"></td> 
+					<td id="tp"></td> 
+					<td></td> 
+					<td id="t5">
+					</td>
+				</tr>
+
+				<tr>
+					<td><hr/></td> 
+					<td id="tp"></td>
+					<td id="red_number1"></td>
+					<td><hr/></td>
+					<td id="tp"></td>  
+					<td id="t7"></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td id="red_denominator3"></td> 
+					<td id="tp"></td>
+					<td></td> 
+					<td id="red_denominator4"></td>  
+					<td id="tp"></td>  
+					<td></td> 
+					<td id="t6"></td>
+				</tr>
+				</tbody>
+			</table>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q6" onclick="validate(01,6,5)" type="radio">&nbsp;<label id="q6-op1"></label></li>
+				<li><input class="q6" onclick="validate(02,6,5)" type="radio">&nbsp;<label id="q6-op2"></label></li>
+				<li><input class="q6" onclick="validate(03,6,5)" type="radio">&nbsp;<label id="q6-op3"></label></li>
+				<li><input class="q6" onclick="validate(04,6,5)" type="radio">&nbsp;<label id="q6-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol5">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_5">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse6">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse6" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas6" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question6 -->
+			
+			<!-- Question7 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 7: &nbsp; Solve this Pythagoras Equation:</h3>
+			<div class="col-md-4">
+			
+			<div id="pytha-eq1"></div>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q7" onclick="validate(01,7,6)" type="radio">&nbsp;<label id="q7-op1"></label></li>
+				<li><input class="q7" onclick="validate(02,7,6)" type="radio">&nbsp;<label id="q7-op2"></label></li>
+				<li><input class="q7" onclick="validate(03,7,6)" type="radio">&nbsp;<label id="q7-op3"></label></li>
+				<li><input class="q7" onclick="validate(04,7,6)" type="radio">&nbsp;<label id="q7-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol6">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_6">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse7">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse7" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas7" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question7 -->
+			
+			<!-- Question8 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 8: &nbsp; Solve this Pythagoras Equation:</h3>
+			<div class="col-md-4">
+			
+			<div id="pytha-eq2"></div>
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q8" onclick="validate(01,8,7)" type="radio">&nbsp;<label id="q8-op1"></label></li>
+				<li><input class="q8" onclick="validate(02,8,7)" type="radio">&nbsp;<label id="q8-op2"></label></li>
+				<li><input class="q8" onclick="validate(03,8,7)" type="radio">&nbsp;<label id="q8-op3"></label></li>
+				<li><input class="q8" onclick="validate(04,8,7)" type="radio">&nbsp;<label id="q8-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol7">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_7">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse8">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse8" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas8" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question8 -->
+			
+			<!-- Question9 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 9: &nbsp; Find the side opposite to an angle of 45 degree, in a right angled triangle. Where length of Hypotenuse is: 
+			<label id="hypo-length"></label></h3>
+			<div class="col-md-4">
+			
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q9" onclick="validate(01,9,8)" type="radio">&nbsp;<label id="q9-op1"></label></li>
+				<li><input class="q9" onclick="validate(02,9,8)" type="radio">&nbsp;<label id="q9-op2"></label></li>
+				<li><input class="q9" onclick="validate(03,9,8)" type="radio">&nbsp;<label id="q9-op3"></label></li>
+				<li><input class="q9" onclick="validate(04,9,8)" type="radio">&nbsp;<label id="q9-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol8">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_8">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse9">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse9" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas9" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question9 -->
+			
+			<!-- Question10 -->
+			<div class="row">
+			<div class="next0">
+			<h3>Question&nbsp; 10: &nbsp; Find the side adjacent to an angle of 30 degree, in a right angled triangle. Where length of Hypotenuse is: 
+			<label id="hypo-length1"></label></h3>
+			<div class="col-md-4">
+			
+			<div id="options">
+			<h3>Options:</h3>
+			<ul id="q2-options" style="list-style :none; ">
+				<li><input class="q10" onclick="validate(01,10,9)" type="radio">&nbsp;<label id="q10-op1"></label></li>
+				<li><input class="q10" onclick="validate(02,10,9)" type="radio">&nbsp;<label id="q10-op2"></label></li>
+				<li><input class="q10" onclick="validate(03,10,9)" type="radio">&nbsp;<label id="q10-op3"></label></li>
+				<li><input class="q10" onclick="validate(04,10,9)" type="radio">&nbsp;<label id="q10-op4"></label></li>
+			</ul>
+			</div>
+			<div id="sol9">
+			</div>
+			</div>
+
+			<div class="col-md-8">
+			<div class="bs-example" id="sol_demo_9">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" style="text-decoration: none !important;" data-parent="#accordion" href="#collapse10">Solution</a>
+						</h4>
+					</div>
+					<div id="collapse10" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<canvas id="canvas10" width="600" height="400" ></canvas>
+						</div>
+					</div>
+				</div>       
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- /Question10 -->
+			
+			<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4 text-center">
+			<button onclick="evaluateScore()" class="btn btn-primary">Check My Score</button>
+			<div id="score_report"> </div>
+			</div>
+			<div class="col-md-4">
+			</div>
+			</div>
+			
+			</div>
+    </section>
+	<div id="message">	</div>
+    <div class="timer" style="margin:2em;"></div>
+	
+    <footer>
+        <div class="container">
+            <div class="row">
+			<div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 text-center">
+                    <span class="copyright">Copyright &copy; Multimedia Application Development 2016</span>
+                </div>
+				<div class="col-md-12">&nbsp;</div>
+            </div>
+        </div>
+    </footer>
+	
+	
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/quiz-config.js"></script>
+	
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for questions-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+	<script src="js/add_fraction.js"></script>
+	<script src="js/add_fraction1.js"></script>
+	<script src="js/sub_fraction.js"></script>
+	<script src="js/sub_fraction1.js"></script>
+	<script src="js/red_fraction.js"></script>
+	<script src="js/red_fraction1.js"></script>
+	<script src="js/pytha-eq1.js"></script>
+	<script src="js/pytha-eq2.js"></script>
+	<script src="js/trigo.js"></script>
+	<script src="js/trigo1.js"></script>
+	<script src="js/timer.js"></script>
+	
+	<script type="text/javascript">
+		var mina = Number(timemin);
+		var seca = Number(timesec);
+		var seconds = mina * 60;
+		var totalsec = seconds + seca;
+		
+		$(document).ready(function(){
+		$('#get-started').hide();	
+		$('#message').hide();
+		});
+		
+		$('#start-test').click(function() {
+			$('#get-started').show();
+			clock = $('.timer').FlipClock( totalsec , {
+			‘
+			clockFace: 'MinuteCounter',
+		        countdown: true,	aio
+		        callbacks: {
+		        	stop: function() {
+						$('#get-started').hide();
+						$('#message').show();
+						var score1 = Number(score);
+		        		var points1 = score1 * 10;
+					if(score1<5)
+					{
+						var message1 = "<div class='container'><div class='row text-center'><h1>TIMEOUT!</H1><hr><h4> You need to work hard! </h4><p>You have answered "+score1+" out of 10 questions.</p><p> Your score is "+points1+"</p></div></div>";
+					}
+					else if(score1==5)
+					{
+						var message1 = "<div class='container'><div class='row text-center'><h1>TIMEOUT!</H1><hr><h4> You can do better! </h4><p>You have answered "+score1+" out of 10 questions.</p><p> Your score is "+points1+"</p></div></div>";
+					}
+					else if(score1>5)
+					{
+						var message1 = "<div class='container'><div class='row text-center'><h1>TIMEOUT!</H1><hr><h4> You did well! </h4><p>You have answered "+score1+" out of 10 questions.</p><p> Your score is "+points1+"</p></div></div>";
+					}
+					
+				  $('#message').html(message1);
+		        	}
+		        }
+		    });
+
+		});
+		
+	</script>
+</body>
+</html>

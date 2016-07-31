@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<testsettings>
+  <item>
+    <min>1</min>
+    <sec>0</sec>
+    <dencount>5</dencount>
+    <den0>2</den0>
+    <den1>3</den1>
+    <den2>4</den2>
+    <den3>5</den3>
+    <den4>10</den4>
+  </item>
+</testsettings>
